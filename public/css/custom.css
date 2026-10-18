@@ -1,0 +1,377 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  color: #1a202c;
+  font-family: "Poppins", sans-serif;
+  background-color: #f7f7f7;
+}
+
+.addDetails {
+  display: inline-block;
+  background-color: #2c3e50;
+  color: #ffffff;
+  padding: 14px 32px;
+  border-radius: 8px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 6px -1px rgba(44, 62, 80, 0.2);
+}
+
+.navContainer {
+  padding-block: 20px;
+  padding-inline: 30px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  background-color: #ffffff;
+  border-bottom: 1px solid #e2e8f0;
+}
+
+.navContainer h1 {
+  color: #2c3e50;
+  font-weight: 800;
+}
+
+.navItems {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.navItems a {
+  text-decoration: none;
+  margin-left: 20px;
+  font-weight: 500;
+  transition: color 0.2s ease;
+}
+
+.homeContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-top: 40px;
+}
+
+.homeContainerItems {
+  background-color: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 16px;
+  box-shadow:
+    0 10px 25px -5px rgba(0, 0, 0, 0.05),
+    0 8px 10px -6px rgba(0, 0, 0, 0.01);
+  max-width: 800px;
+  margin: 4rem auto;
+  padding: 4rem 2rem;
+  text-align: center;
+}
+
+.homeContainerItems h1 {
+  color: #1a202c;
+  font-size: 3rem;
+  font-weight: 800;
+  margin-bottom: 2rem;
+  letter-spacing: -1px;
+}
+
+footer {
+  text-align: center;
+  color: #718096;
+  padding: 2rem;
+  font-size: 0.875rem;
+  margin-top: auto;
+}
+
+.formCollecting {
+  padding-top: 30px;
+}
+
+/* Cards  */
+
+/* This is the different type of container  */
+
+.space {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 20px;
+}
+
+.addHomeContainer {
+  padding: 40px;
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  width: 100%;
+  max-width: 450px;
+  margin-top: 20px;
+}
+
+.Items {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 6px;
+}
+
+.Items input {
+  width: 100%;
+  padding-block: 12px;
+  text-indent: 15px;
+  border-radius: 8px;
+  font-size: 16px;
+  border: 1px solid rgb(207, 199, 199);
+}
+
+.submit {
+  background-color: blue;
+  padding: 8px 15px;
+  font-size: 22px;
+  border-radius: 5px;
+  border: none;
+  color: white;
+}
+
+.submit:active {
+  background-color: white;
+  color: blue;
+}
+
+.homes {
+  text-align: center;
+}
+
+.addAnother {
+  text-align: center;
+}
+
+.homeImage {
+  width: 300px;
+}
+
+.price {
+  font-size: 17px;
+  color: rgb(104, 163, 15);
+  font-weight: 600;
+}
+
+.rating {
+  font-size: 17px;
+  font-weight: 600;
+}
+
+.chintu {
+  color: red;
+}
+
+.pintu {
+  color: #4a5568;
+}
+
+/* Host header  */
+
+/* Show this header on the result page so that the user can navigate */
+
+.LogoutButton {
+  background-color: blue;
+  color: white;
+  /* padding:4px; */
+  padding-inline: 8px;
+  padding-block: 4px;
+  border-radius: 5px;
+}
+
+/* Main page  */
+
+.mainPageContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.commonContainer {
+  width: 650px;
+  height: 450px;
+
+  background-color: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 16px;
+  box-shadow:
+    0 10px 25px -5px rgba(0, 0, 0, 0.05),
+    0 8px 10px -6px rgba(0, 0, 0, 0.01);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.welcomeMessage {
+  padding-top: 60px;
+  font-size: 40px;
+  color: #1a202c;
+  font-weight: 800;
+}
+
+.loginAs {
+  padding-top: 70px;
+  font-size: 25px;
+}
+
+.buttonsContainer {
+  padding-top: 50px;
+  display: flex;
+  gap: 200px;
+}
+
+.hostLoginButton {
+  text-decoration: none;
+  color: black;
+  padding-inline: 14px;
+  padding-block: 6px;
+  background-color: blue;
+  color: white;
+  font-size: 30px;
+  border-radius: 5px;
+  font-weight: 700;
+}
+
+.userLoginButton {
+  text-decoration: none;
+  color: black;
+  padding-inline: 14px;
+  padding-block: 6px;
+  background-color: blue;
+  color: white;
+  font-size: 30px;
+  border-radius: 5px;
+  font-weight: 700;
+}
+
+.iconContainer {
+  display: flex;
+  justify-content: end;
+  gap: 8px;
+}
+
+/* card containers  */
+
+.homesCardContainer {
+  width: 300px;
+  background-color: white;
+  border-radius: 15px;
+  overflow: hidden;
+}
+
+.topItem {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.providerName {
+  font-size: 18px;
+  font-weight: 600;
+  color: #222;
+  font-family: "Poppins", sans-serif;
+}
+
+.bottomContainer {
+  padding: 13px;
+}
+
+.homeLocation {
+  color: #717171;
+  /* font-size:16px; */
+  /* word-spacing:1px; */
+}
+
+.priceContainer {
+  display: flex;
+  flex-direction: row;
+  justify-content: start;
+  gap: 2px;
+  margin-bottom:25px;
+}
+
+
+
+/* <div class="homeLocation">
+<%= item.Location %>
+</div>
+<div class="priceratingContainer">
+<div class="price">Rs<%= item.Price%>/night</div>
+
+</div>
+<div class="cardBottomItems">
+<div class="buttonContainer">
+  <a href="/User-homes/<%=item.id %>" class="detailsButton">Details</a>
+  <div class="bookButton">Book</div>
+  <form method="post" action="/User-favourite/<%=item.id%>">
+    <button class="favouriteButton">Favourite</button>
+  </form>
+</div>
+</div>
+</div>
+
+*/
+
+
+.buttonContainer{
+  display:flex;
+  flex-direction:row;
+  justify-content:center;
+  align-items:center;
+  gap:7px;
+  margin-bottom:8px;
+}
+
+
+.detailsButton {
+  flex: 1;
+  padding: 10px;
+  background-color: white;
+  color: #222;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+  font-family: inherit;
+  display:flex;
+  flex-direction:row;
+  justify-content:center;
+  align-items:center;
+}
+
+.homeButton{
+  flex: 1;
+    padding: 10px;
+    background-color: #2b35d1;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+    font-family: inherit;
+    display:flex;
+    flex-direction:row;
+    justify-content:center;
+    align-items:center;
+}
+
+
+.cardLayoutContainer{
+  display:flex;
+  flex-direction:row;
+  gap:20px;
+  flex-wrap:wrap;
+  justify-content:center;
+  margin-top:40px;
+}

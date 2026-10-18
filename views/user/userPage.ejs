@@ -1,0 +1,45 @@
+<%- include("../partials/head", { title: title }) %>
+
+  <body>
+    <%- include("../partials/userNav") %>
+      <div class="space">
+        <h1 class="homes">Available Homes 🏡</h1>
+        <div class="cardLayoutContainer">
+          <% if (items.length===0) { %>
+            <p>No homes added yet.</p>
+            <% } else { %>
+              <% items.forEach((item)=> { %>
+                <div class="homesCardContainer">
+                  <div class="topContainer">
+                    <img class="homeImage" src=" https://images.unsplash.com/photo-1564013799919-ab600027ffc6?w=400 "
+                      alt="Home image" class="homeImage">
+                  </div>
+                  <div class="bottomContainer">
+                    <div class="topItem">
+                      <div class="providerName">
+                        <%= item.Name %>
+                      </div>
+                      <div class="rating">⭐<%= item.Rating%>
+                      </div>
+                    </div>
+                    <div class="homeLocation">
+                      <%= item.Location %>
+                    </div>
+                    <div class="priceContainer">
+                      <div>Rs2000</div>
+                      <div>/</div>
+                      <div>night</div>
+                    </div>
+                    <div class="buttonContainer">
+                      <a class="detailsButton">Details</a>
+                      <a class="homeButton">Book</a>
+                    </div>
+                  </div>
+                </div>
+                <% }) %>
+                  <% } %>
+        </div>
+        <%- include("../partials/footer") %>
+  </body>
+
+  </html>

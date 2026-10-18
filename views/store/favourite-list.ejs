@@ -1,0 +1,11 @@
+<%- include("../partials/head", { title: title }) %>
+
+    <body>
+        <%- include("../partials/userNav") %>
+            <h1>This is the user favourite homes page.</h1>
+            <% favouriteHomes.forEach((newItems)=>{%>
+                <div><%= newItems.Name%></div>
+                    <%})%>
+    </body>
+
+    </html>

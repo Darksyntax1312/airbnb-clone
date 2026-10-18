@@ -1,0 +1,34 @@
+<header>
+  <div class="navContainer">
+    <h2>Welcome to Airbnb</h2>
+    <nav class="navItems">
+
+      <a class="<%= (typeof UserHomeLink !== 'undefined' && UserHomeLink === '/User-page') ? 'chintu' : 'pintu' %>"
+        href="/User-page">Homes</a>
+
+
+      <a class="<%= (typeof userBookingLink !== 'undefined' && userBookingLink === '/User-bookings') ? 'chintu' : 'pintu' %>"
+        href="/User-bookings">Bookings</a>
+
+      <a class="<%= (typeof userFavouriteLink !== 'undefined' && userFavouriteLink === '/User-favourite') ? 'chintu' : 'pintu' %>"
+        href="/User-favourite">Favourite</a>
+
+      <!-- <a class="<%= (typeof userHomeDetails !== 'undefined' && userHomeDetails === '/User-homes') ? 'chintu' : 'pintu' %>"
+        href="/User-homes">Homes</a> -->
+
+      <a class="<%= (typeof userHomeList !== 'undefined' && userHomeList === '/User-home-list') ? 'chintu' : 'pintu' %>"
+        href="/User-home-list">Homes list</a>
+
+
+
+      <a class="<%= (typeof reserveHomesLink !== 'undefined' && reserveHomesLink === '/User-home-reserve') ? 'chintu' : 'pintu' %>"
+        href="/User-home-reserve">Reserve homes</a>
+
+
+      <a class="LogoutButton" href="/">Log out</a>
+
+    </nav>
+  </div>
+
+
+</header>

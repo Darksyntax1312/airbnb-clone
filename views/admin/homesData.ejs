@@ -1,0 +1,62 @@
+<%- include("../partials/head", { title: title }) %>
+
+  <body>
+    <%- include("../partials/Header") %>
+    <!-- Put the new user header in place of this host systems header -->
+     
+      <div class="space">
+        <h1 class="homes">Available Homes 🏡</h1>
+        <!-- <p>You are in the result page.</p> -->
+        <div class="cardLayoutContainer">
+          <% if (items.length===0) { %>
+            <p>No homes added yet.</p>
+            <% } else { %>
+
+              <% items.forEach((item)=> { %>
+                <div class="homesCardContainer">
+                  <img class="homeImage" src=" https://images.unsplash.com/photo-1564013799919-ab600027ffc6?w=400 "
+                    alt="Home image" class="homeImage">
+                  <div class="providerName">
+                    <%= item.Name %>
+                  </div>
+                  <div class="homeLocation">
+                    <%= item.Location %>
+                  </div>
+                  <div class="priceratingContainer">
+                    <div class="price">Rs<%= item.Price%>/night</div>
+                    <div class="rating">⭐<%= item.Rating%>
+                    </div>
+                  </div>
+
+
+
+
+
+                  <div class="cardBottomItems1">
+
+
+
+                  <div class="iconContainer">
+                    <div>✎</div>
+                    <div>🗑️</div>
+                  </div>
+
+
+
+
+
+
+
+
+                  </div>
+                 
+
+                </div>
+                <% }) %>
+                  <% } %>
+        </div>
+        <%- include("../partials/footer") %>
+      </div>
+  </body>
+
+  </html>
