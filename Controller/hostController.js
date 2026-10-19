@@ -17,8 +17,8 @@ const getController = (req, res) => {
 };
 
 const postController = (req, res) => {
-  const { Name, Price, Location, Rating, PhoneNumber , Details } = req.body;
-  const home = new product(Name, Price, Location, Rating, PhoneNumber , Details);
+  const { Name, Price, Location, Rating, PhoneNumber, Details } = req.body;
+  const home = new product(Name, Price, Location, Rating, PhoneNumber, Details);
   home.save();
   res.redirect("/host/homes");
 };
@@ -42,15 +42,69 @@ const homeList = (req, res) => {
   res.render("admin/Home-list", { title: "Home-list", homeList: `${req.url}` });
 };
 
-// Homes edit page controller
+// Homes edit get request controller
 
-const homesEdit = (req, res) => {
+
+
+
+
+
+
+
+const homesEdit = (req, res, next) => {
+  // console.log("Get request is receiving");
+  let theId = req.params.homeId;
+
+  product.fetchAll((err, items) => {
+    // console.log("Data fetching")
+    if (err) {
+      return next(err);
+    }
+
+    let filteredHomes = items.find((item) => String(item.id) === String(theId));
+    if(!filteredHomes){
+      return res.status(404).json({ message: "Home not found", theId });
+    }
+// console.log("Data fetched")
+    res.json(filteredHomes);
+  });
+};
+
+
+
+
+
+
+
+
+
+// res.render("admin/edit-Home", {
+//   title: "Homes-edit",
+// });
+
+// const homesEdit = (req, res) => {
+//   console.log("Get request is receiving");
+//   console.log(req.params.homeId);
+
+//   res.render("admin/edit-Home", {
+//     title: "Homes-edit",
+//     homeId: req.params.homeId,
+//   });
+// };
+
+// Homes edit post request controller
+
+const homesPostEdit = (req, res) => {
+  console.log("Post request is received");
+  console.log(req.params.homeId);
+  // res.redirect("/host/homes-edit")
   res.render("admin/edit-Home", {
     title: "Homes-edit",
     homesEdit: `${req.url}`,
   });
 };
 
+exports.homesPostEdit = homesPostEdit;
 exports.homesEdit = homesEdit;
 exports.homeList = homeList;
 exports.homePageController = homePageController;

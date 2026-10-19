@@ -3,6 +3,10 @@
   padding: 0;
 }
 
+* {
+  box-sizing: border-box;
+}
+
 body {
   color: #1a202c;
   font-family: "Poppins", sans-serif;
@@ -110,6 +114,7 @@ footer {
   width: 100%;
   max-width: 450px;
   margin-top: 20px;
+  background-color: white;
 }
 
 .Items {
@@ -265,6 +270,11 @@ footer {
   background-color: white;
   border-radius: 15px;
   overflow: hidden;
+
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
 }
 
 .topItem {
@@ -279,6 +289,7 @@ footer {
   font-weight: 600;
   color: #222;
   font-family: "Poppins", sans-serif;
+  padding-bottom: 10px;
 }
 
 .bottomContainer {
@@ -287,6 +298,7 @@ footer {
 
 .homeLocation {
   color: #717171;
+  padding-bottom: 14px;
   /* font-size:16px; */
   /* word-spacing:1px; */
 }
@@ -295,11 +307,10 @@ footer {
   display: flex;
   flex-direction: row;
   justify-content: start;
-  gap: 2px;
-  margin-bottom:25px;
+  align-items: center;
+  gap: 4px;
+  margin-bottom: 25px;
 }
-
-
 
 /* <div class="homeLocation">
 <%= item.Location %>
@@ -321,16 +332,18 @@ footer {
 
 */
 
-
-.buttonContainer{
-  display:flex;
-  flex-direction:row;
-  justify-content:center;
-  align-items:center;
-  gap:7px;
-  margin-bottom:8px;
+.buttonContainer {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 7px;
+  margin-bottom: 8px;
 }
 
+.buttonContainer > a:first-child {
+  text-decoration: none;
+}
 
 .detailsButton {
   flex: 1;
@@ -343,35 +356,466 @@ footer {
   cursor: pointer;
   transition: background-color 0.2s ease;
   font-family: inherit;
-  display:flex;
-  flex-direction:row;
-  justify-content:center;
-  align-items:center;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
 }
 
-.homeButton{
+.editButton{
   flex: 1;
-    padding: 10px;
-    background-color: #2b35d1;
-    color: white;
-    border: none;
-    border-radius: 8px;
-    font-weight: 600;
-    cursor: pointer;
-    transition: background-color 0.2s ease;
-    font-family: inherit;
-    display:flex;
-    flex-direction:row;
-    justify-content:center;
-    align-items:center;
+  padding: 10px;
+  background-color: white;
+  color: #222;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+  font-family: inherit;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
 }
 
+.detailsButton:hover {
+  background-color: #f7f7f7;
+}
 
-.cardLayoutContainer{
-  display:flex;
-  flex-direction:row;
-  gap:20px;
-  flex-wrap:wrap;
-  justify-content:center;
-  margin-top:40px;
+.editButton:hover{
+  background-color:#f7f7f7;
+}
+
+.bookButton {
+  flex: 1;
+  padding: 10px;
+  background-color: #2b35d1;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+  font-family: inherit;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+.deleteButton {
+  flex: 1;
+  padding: 10px;
+  background-color: #dc3545;
+  color: #ffffff;
+  border: none;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  /* transition: background-color 0.2s ease; */
+  transition: background-color 0.2s ease-in-out;
+  font-family: inherit;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+.bookButton:hover {
+  background-color: #1a218f;
+}
+
+.deleteButton:hover {
+  background-color: #bd2130;
+}
+
+.cardLayoutContainer {
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-top: 40px;
+}
+
+.homesCardContainer:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+}
+
+.realPrice {
+  font-weight: 700;
+  color: rgb(34, 34, 34);
+  font-size: 19px;
+}
+
+.priceBar {
+  font-size: 24px;
+}
+
+.night {
+  color: rgb(34, 34, 34);
+  font-size: 17px;
+}
+
+.form1 {
+  display: flex;
+  flex: 1;
+}
+
+.editHomePage {
+  display: none;
+}
+
+/* Overlay editing container is starting from here */
+
+.overlay {
+  /* Job 1: cover the screen */
+  position: fixed;
+  inset: 0;
+
+  /* Job 2: darken the page */
+  background: rgba(0, 0, 0, 0.5);
+
+  /* Job 3: center the modal */
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  overflow-y: auto;
+  /* padding-top:10px; */
+
+  /* Job 4: hide by default */
+  opacity: 0;
+  visibility: hidden;
+  transition:
+    opacity 0.2s ease,
+    visibility 0.2s ease;
+
+  /* Small safety padding so modal doesn't touch edges on tiny screens */
+  padding: 16px;
+}
+
+.overlay1 {
+  opacity: 1;
+  visibility: visible;
+}
+
+.overlayContainer {
+  width: 700px;
+  height: 800px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  background-color: white;
+  border-radius: 16px;
+  padding: 32px;
+}
+
+.priceNameContainer {
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
+  padding-bottom: 20px;
+  /* justify-content:space-between; */
+}
+
+.locationRatingContainer {
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
+  padding-bottom: 20px;
+}
+
+.locationContainer {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.ratingContainer {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.heading-content-1 {
+  color: #222;
+  padding-bottom: 5px;
+}
+
+.heading-content-2 {
+  color: #777;
+  font-size: 15.2px;
+  padding-bottom: 25px;
+}
+
+.photoLink {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding-bottom: 20px;
+}
+
+.photoLink > div:first-child {
+  font-size: 17px;
+  font-weight: 600;
+  /* font-family: "Poppins", sans-serif; */
+  color: #444;
+}
+
+.homeNameContainer {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.newpriceContainer {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.homeNameContainer > div:first-child {
+  padding-bottom: 8px;
+  font-size: 17px;
+  font-weight: 600;
+  color: #444;
+}
+
+.newpriceContainer > div:first-child {
+  padding-bottom: 8px;
+  font-size: 17px;
+  font-weight: 600;
+  color: #444;
+}
+
+.locationContainer > div:first-child {
+  padding-bottom: 8px;
+  font-size: 17px;
+  font-weight: 600;
+  color: #444;
+}
+
+.ratingContainer > div:first-child {
+  padding-bottom: 8px;
+  font-size: 17px;
+  font-weight: 600;
+  color: #444;
+}
+
+.phoneNumberContainer {
+  display: flex;
+  flex-direction: column;
+  padding-bottom: 20px;
+}
+
+.phoneNumberContainer > div:first-child {
+  padding-bottom: 8px;
+  font-size: 17px;
+  font-weight: 600;
+  color: #444;
+}
+
+.homeDetailsContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.homeDetailsContainer > label:first-child {
+  font-size: 17px;
+  font-weight: 600;
+  color: #444;
+}
+
+.photoLink > input:nth-child(2) {
+  font-family: inherit;
+  font-size: 16px;
+  background-color: rgb(249, 249, 249);
+  padding: 12px 15px;
+  border: 2px solid rgb(238, 238, 238);
+  border-radius: 10px;
+  outline: none;
+  transition: 0.3s;
+  border-image: none;
+}
+
+.photoLink > input:nth-child(2):focus {
+  border-color: #2b35d1;
+  background-color: white;
+  box-shadow: 0 0 0 4px rgba(43, 53, 209, 0.1);
+}
+
+.homeNameContainer > input:nth-child(2) {
+  font-family: inherit;
+  font-size: 16px;
+  background-color: rgb(249, 249, 249);
+  padding: 12px 15px;
+  border: 2px solid rgb(238, 238, 238);
+  border-radius: 10px;
+  outline: none;
+  transition: 0.3s;
+  border-image: none;
+}
+
+.homeNameContainer > input:nth-child(2):focus {
+  border-color: #2b35d1;
+  background-color: white;
+  box-shadow: 0 0 0 4px rgba(43, 53, 209, 0.1);
+}
+
+.newpriceContainer > input:nth-child(2) {
+  font-family: inherit;
+  font-size: 16px;
+  background-color: rgb(249, 249, 249);
+  padding: 12px 15px;
+  border: 2px solid rgb(238, 238, 238);
+  border-radius: 10px;
+  outline: none;
+  transition: 0.3s;
+  border-image: none;
+}
+
+.newpriceContainer > input:nth-child(2):focus {
+  border-color: #2b35d1;
+  background-color: white;
+  box-shadow: 0 0 0 4px rgba(43, 53, 209, 0.1);
+}
+
+.locationContainer > input:nth-child(2) {
+  font-family: inherit;
+  font-size: 16px;
+  background-color: rgb(249, 249, 249);
+  padding: 12px 15px;
+  border: 2px solid rgb(238, 238, 238);
+  border-radius: 10px;
+  outline: none;
+  transition: 0.3s;
+  border-image: none;
+}
+
+.locationContainer > input:nth-child(2):focus {
+  border-color: #2b35d1;
+  background-color: white;
+  box-shadow: 0 0 0 4px rgba(43, 53, 209, 0.1);
+}
+
+.ratingContainer > input:nth-child(2) {
+  font-family: inherit;
+  font-size: 16px;
+  background-color: rgb(249, 249, 249);
+  padding: 12px 15px;
+  border: 2px solid rgb(238, 238, 238);
+  border-radius: 10px;
+  outline: none;
+  transition: 0.3s;
+  border-image: none;
+}
+
+.ratingContainer > input:nth-child(2):focus {
+  border-color: #2b35d1;
+  background-color: white;
+  box-shadow: 0 0 0 4px rgba(43, 53, 209, 0.1);
+}
+
+.phoneNumberContainer > input:nth-child(2) {
+  font-family: inherit;
+  font-size: 16px;
+  background-color: rgb(249, 249, 249);
+  padding: 12px 15px;
+  border: 2px solid rgb(238, 238, 238);
+  border-radius: 10px;
+  outline: none;
+  transition: 0.3s;
+  border-image: none;
+}
+
+.phoneNumberContainer > input:nth-child(2):focus {
+  border-color: #2b35d1;
+  background-color: white;
+  box-shadow: 0 0 0 4px rgba(43, 53, 209, 0.1);
+}
+
+.homeDetailsContainer > textarea:nth-child(2) {
+  font-family: inherit;
+  font-size: 16px;
+  background-color: rgb(249, 249, 249);
+  padding: 12px 15px;
+  border: 2px solid rgb(238, 238, 238);
+  border-radius: 10px;
+  outline: none;
+  transition: 0.3s;
+  border-image: none;
+}
+
+.homeDetailsContainer > textarea:nth-child(2):focus {
+  border-color: #2b35d1;
+  background-color: white;
+  box-shadow: 0 0 0 4px rgba(43, 53, 209, 0.1);
+}
+
+/* Action row at the bottom of the modal */
+.modalActions {
+  display: flex;
+  justify-content: flex-end; /* buttons sit on the right */
+  align-items: center;
+  gap: 12px;
+  margin-top: 28px;
+  padding-top: 20px;
+  border-top: 1px solid #e2e8f0; /* subtle separator from the form */
+}
+
+/* Shared button base */
+.modalActions button {
+  font-family: "Poppins", sans-serif;
+  font-size: 15px;
+  font-weight: 600;
+  letter-spacing: 0.3px;
+  padding: 12px 24px;
+  border-radius: 10px;
+  border: 1px solid transparent;
+  cursor: pointer;
+  transition:
+    background-color 0.2s ease,
+    border-color 0.2s ease,
+    transform 0.1s ease,
+    box-shadow 0.2s ease;
+}
+
+.modalActions button:active {
+  transform: scale(0.97); /* little press feedback */
+}
+
+.modalActions button:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(43, 53, 209, 0.25); /* accessible focus ring */
+}
+
+/* Cancel — quiet, secondary */
+.btnCancel {
+  background-color: #ffffff;
+  color: #4a5568;
+  border-color: #d1d5db;
+}
+
+.btnCancel:hover {
+  background-color: #f7f7f7;
+  border-color: #b6bcc6;
+}
+
+/* Save — solid primary, matches your .bookButton */
+.btnSave {
+  background-color: #2b35d1;
+  color: #ffffff;
+  border-color: #2b35d1;
+  box-shadow: 0 4px 12px rgba(43, 53, 209, 0.25);
+}
+
+.btnSave:hover {
+  background-color: #1a218f; /* same hover as .bookButton */
+  border-color: #1a218f;
+  box-shadow: 0 6px 16px rgba(43, 53, 209, 0.35);
+}
+
+.homeDetailsContainer > textarea:nth-child(2) {
+  overflow-y: auto;
 }

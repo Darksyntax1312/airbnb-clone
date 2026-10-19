@@ -6,6 +6,7 @@ const { resController } = require("../Controller/hostController");
 const { homePageController } = require("../Controller/hostController");
 const { homeList } = require("../Controller/hostController");
 const { homesEdit } = require("../Controller/hostController");
+const { homesPostEdit } = require("../Controller/hostController");
 
 // Show form
 
@@ -27,8 +28,9 @@ hostRouter.get("/Home-page", homePageController);
 
 hostRouter.get("/home-list", homeList);
 
-// show admit edit page
+// show admin edit page
 
-hostRouter.get("/homes-edit", homesEdit);
+hostRouter.get("/homes-edit/:homeId", homesEdit);
+hostRouter.post("/homes-edit/:homeId", homesPostEdit);
 
 module.exports = hostRouter;

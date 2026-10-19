@@ -26,13 +26,13 @@
                       <%= item.Location %>
                     </div>
                     <div class="priceContainer">
-                      <div>Rs2000</div>
-                      <div>/</div>
-                      <div>night</div>
+                      <div class="realPrice">Rs<%=item.Price%></div>
+                      <div class="priceBar">/</div>
+                      <div class="night">night</div>
                     </div>
                     <div class="buttonContainer">
-                      <a class="detailsButton">Details</a>
-                      <a class="homeButton">Book</a>
+                      <a href="/User-homes/<%=item.id%>" class="detailsButton">Details</a>
+                      <a class="bookButton">Book</a>
                     </div>
                   </div>
                 </div>
