@@ -14,6 +14,7 @@ App.set("views", path.join(root, "views"));
 
 App.use(MainRouter);
 App.use(userRouter);
+App.use(express.json());
 App.use("/Host", hostRouter);
 
 App.use(express.static(path.join(root, 'public')));

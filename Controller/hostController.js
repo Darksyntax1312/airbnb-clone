@@ -47,10 +47,6 @@ const homeList = (req, res) => {
 
 
 
-
-
-
-
 const homesEdit = (req, res, next) => {
   // console.log("Get request is receiving");
   let theId = req.params.homeId;
@@ -94,15 +90,35 @@ const homesEdit = (req, res, next) => {
 
 // Homes edit post request controller
 
-const homesPostEdit = (req, res) => {
-  console.log("Post request is received");
-  console.log(req.params.homeId);
-  // res.redirect("/host/homes-edit")
-  res.render("admin/edit-Home", {
-    title: "Homes-edit",
-    homesEdit: `${req.url}`,
-  });
-};
+// const homesPostEdit = (req, res, next) => {
+//   console.log("Post request is received");
+//   console.log(req.body.Name)
+//   console.log(req.params.homeId);
+//   let newHomeId = req.params.homeId;
+//   res.json({ message: "Controller received the ID and edited values." });
+
+//   product.fetchAll((err, items) => {
+//     if (err) {
+//       return next(err);
+//     }
+
+
+//     let filteredHomes = items.find((item) => String(item.id) === String(newHomeId));
+//     if(!filteredHomes){
+//       return res.status(404).json({ message: "Home not found"});
+//     }
+
+    const homesPostEdit = (req, res, next) => {
+      product.updateById(req.params.homeId, req.body, (err, updatedHome) => {
+        if (err) return next(err);
+    
+        if (!updatedHome) {
+          return res.status(404).json({ message: "Home not found" });
+        }
+    
+        res.json({ message: "Home updated", home: updatedHome });
+      });
+    };
 
 exports.homesPostEdit = homesPostEdit;
 exports.homesEdit = homesEdit;

@@ -64,61 +64,62 @@
         <div class="overlayContainer">
           <h1 class="heading-content-1">Edit Your Home 🏠</h1>
           <div class="heading-content-2">Fill in the details below to edit your property.</div>
-          <div class="photoLink">
-            <div>Photo Link (URL)</div>
-            <input type="text" name="imageLink" placeholder="Enter your house image link here....">
-          </div>
-
-          <div class="priceNameContainer">
-
-            <div class="homeNameContainer">
-              <div>Home name</div>
-              <input type="text" name="homeName" placeholder="Enter your home name here...">
+          <form method="post">
+            <div class="photoLink">
+              <div>Photo Link (URL)</div>
+              <input type="text" name="imageLink" placeholder="Enter your house image link here....">
             </div>
 
-            <div class="newpriceContainer">
-              <div>Price(per night)</div>
-              <input type="text" name="Price" placeholder="Enter your home price here...">
-            </div>
+            <div class="priceNameContainer">
+
+              <div class="homeNameContainer">
+                <div>Home name</div>
+                <input type="text" name="homeName" placeholder="Enter your home name here...">
+              </div>
+
+              <div class="newpriceContainer">
+                <div>Price(per night)</div>
+                <input type="text" name="Price" placeholder="Enter your home price here...">
+              </div>
 
 
-          </div>
-
-
-
-          <div class="locationRatingContainer">
-
-            <div class="locationContainer">
-              <div>Location</div>
-              <input type="text" name="Location" placeholder="Enter your home Location here...">
-            </div>
-
-            <div class="ratingContainer">
-              <div>Rating(1-5)</div>
-              <input type="text" name="Rating" placeholder="Enter your home rating here...">
             </div>
 
 
-          </div>
+
+            <div class="locationRatingContainer">
+
+              <div class="locationContainer">
+                <div>Location</div>
+                <input type="text" name="Location" placeholder="Enter your home Location here...">
+              </div>
+
+              <div class="ratingContainer">
+                <div>Rating(1-5)</div>
+                <input type="text" name="Rating" placeholder="Enter your home rating here...">
+              </div>
 
 
-          <div class="phoneNumberContainer">
-            <div>Phone number</div>
-            <input type="number" name="phoneNumber" placeholder="Enter your phone number here....">
-          </div>
+            </div>
 
 
-          <div class="homeDetailsContainer">
-            <label>Home details</label>
-            <textarea rows="5" name="Details" placeholder="Enter your home details here..."></textarea>
-          </div>
-
-          <div class="modalActions">
-            <button class="btnSave">Save &amp; Change</button>
-            <button class="btnCancel">Cancel</button>
+            <div class="phoneNumberContainer">
+              <div>Phone number</div>
+              <input type="number" name="phoneNumber" placeholder="Enter your phone number here....">
+            </div>
 
 
-          </div>
+            <div class="homeDetailsContainer">
+              <label>Home details</label>
+              <textarea rows="5" name="Details" placeholder="Enter your home details here..."></textarea>
+            </div>
+
+            <div class="modalActions">
+              <button type="button" class="btnCancel">Cancel</button>
+              <button type="button" class="btnSave">Save &amp; Change</button>
+
+            </div>
+          </form>
         </div>
       </div>
 

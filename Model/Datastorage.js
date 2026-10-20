@@ -99,6 +99,51 @@ class Product {
       }
     });
   }
+
+
+
+
+
+// Updating the id
+
+static updateById(id,updates,callback){
+  fs.readFile("Newfile.txt",(err,data)=>{
+    if(err) return callback(err);
+
+    let homes;
+    try{
+      homes = JSON.parse(data);
+    } catch(parseErr){
+      return callback(parseErr)
+    }
+
+
+const home = homes.find((item) => String(item.id)=== String(id));
+
+if(!home) return callback(null,null);
+
+if(updates.Name !== home.Name){
+home.Name = updates.Name;
+}if(updates.Price !== home.Price){
+home.Price = updates.Price;
+}if(updates.Location !== home.Location){
+home.Location = updates.Location;
+}if(updates.Rating !== home.Rating){
+home.Rating = updates.Rating;
+}if(updates.PhoneNumber !== home.PhoneNumber){
+home.PhoneNumber = updates.PhoneNumber;
+}if(updates.Details !== home.details){
+home.details = updates.Details;
+}
+
+
+fs.writeFile("Newfile.txt",JSON.stringify(homes),(writeErr) =>{
+  if(writeErr) return callback(writeErr);
+  callback(null,home);
+})
+  })
+}
+
 }
 
 module.exports = Product;
