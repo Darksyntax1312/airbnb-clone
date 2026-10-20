@@ -44,9 +44,6 @@ const homeList = (req, res) => {
 
 // Homes edit get request controller
 
-
-
-
 const homesEdit = (req, res, next) => {
   // console.log("Get request is receiving");
   let theId = req.params.homeId;
@@ -58,67 +55,27 @@ const homesEdit = (req, res, next) => {
     }
 
     let filteredHomes = items.find((item) => String(item.id) === String(theId));
-    if(!filteredHomes){
+    if (!filteredHomes) {
       return res.status(404).json({ message: "Home not found", theId });
     }
-// console.log("Data fetched")
+    // console.log("Data fetched")
     res.json(filteredHomes);
   });
 };
 
-
-
-
-
-
-
-
-
-// res.render("admin/edit-Home", {
-//   title: "Homes-edit",
-// });
-
-// const homesEdit = (req, res) => {
-//   console.log("Get request is receiving");
-//   console.log(req.params.homeId);
-
-//   res.render("admin/edit-Home", {
-//     title: "Homes-edit",
-//     homeId: req.params.homeId,
-//   });
-// };
-
 // Homes edit post request controller
 
-// const homesPostEdit = (req, res, next) => {
-//   console.log("Post request is received");
-//   console.log(req.body.Name)
-//   console.log(req.params.homeId);
-//   let newHomeId = req.params.homeId;
-//   res.json({ message: "Controller received the ID and edited values." });
+const homesPostEdit = (req, res, next) => {
+  product.updateById(req.params.homeId, req.body, (err, updatedHome) => {
+    if (err) return next(err);
 
-//   product.fetchAll((err, items) => {
-//     if (err) {
-//       return next(err);
-//     }
+    if (!updatedHome) {
+      return res.status(404).json({ message: "Home not found" });
+    }
 
-
-//     let filteredHomes = items.find((item) => String(item.id) === String(newHomeId));
-//     if(!filteredHomes){
-//       return res.status(404).json({ message: "Home not found"});
-//     }
-
-    const homesPostEdit = (req, res, next) => {
-      product.updateById(req.params.homeId, req.body, (err, updatedHome) => {
-        if (err) return next(err);
-    
-        if (!updatedHome) {
-          return res.status(404).json({ message: "Home not found" });
-        }
-    
-        res.json({ message: "Home updated", home: updatedHome });
-      });
-    };
+    res.json({ message: "Home updated", home: updatedHome });
+  });
+};
 
 exports.homesPostEdit = homesPostEdit;
 exports.homesEdit = homesEdit;
