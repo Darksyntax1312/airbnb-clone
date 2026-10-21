@@ -33,7 +33,6 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: center;
-
   background-color: #ffffff;
   border-bottom: 1px solid #e2e8f0;
 }
@@ -52,7 +51,7 @@ body {
 .navItems a {
   text-decoration: none;
   margin-left: 20px;
-  font-weight: 500;
+  font-weight: 600;
   transition: color 0.2s ease;
 }
 
@@ -124,7 +123,7 @@ footer {
   gap: 8px;
 }
 
-.Items>label:first-child{
+.Items > label:first-child {
   font-size: 17px;
   font-weight: 600;
   color: #444;
@@ -177,7 +176,7 @@ footer {
 }
 
 .chintu {
-  color: red;
+  color: blue;
 }
 
 .pintu {
@@ -368,7 +367,7 @@ footer {
   align-items: center;
 }
 
-.editButton{
+.editButton {
   flex: 1;
   padding: 10px;
   background-color: white;
@@ -389,8 +388,8 @@ footer {
   background-color: #f7f7f7;
 }
 
-.editButton:hover{
-  background-color:#f7f7f7;
+.editButton:hover {
+  background-color: #f7f7f7;
 }
 
 .bookButton {
@@ -427,8 +426,6 @@ footer {
   justify-content: center;
   align-items: center;
 }
-
-
 
 .bookButton:hover {
   background-color: #1a218f;
@@ -827,8 +824,7 @@ footer {
   overflow-y: auto;
 }
 
-
-#A1952{
+#A1952 {
   font-family: inherit;
   font-size: 16px;
   background-color: rgb(249, 249, 249);
@@ -840,13 +836,13 @@ footer {
   border-image: none;
 }
 
-#A1952:focus{
+#A1952:focus {
   border-color: #2b35d1;
   background-color: white;
   box-shadow: 0 0 0 4px rgba(43, 53, 209, 0.1);
 }
 
-#PNI8{
+#PNI8 {
   font-family: inherit;
   font-size: 16px;
   background-color: rgb(249, 249, 249);
@@ -858,13 +854,13 @@ footer {
   border-image: none;
 }
 
-#PNI8:focus{
+#PNI8:focus {
   border-color: #2b35d1;
   background-color: white;
   box-shadow: 0 0 0 4px rgba(43, 53, 209, 0.1);
 }
 
-#L1952{
+#L1952 {
   font-family: inherit;
   font-size: 16px;
   background-color: rgb(249, 249, 249);
@@ -876,13 +872,13 @@ footer {
   border-image: none;
 }
 
-#L1952:focus{
+#L1952:focus {
   border-color: #2b35d1;
   background-color: white;
   box-shadow: 0 0 0 4px rgba(43, 53, 209, 0.1);
 }
 
-#R1952{
+#R1952 {
   font-family: inherit;
   font-size: 16px;
   background-color: rgb(249, 249, 249);
@@ -894,13 +890,13 @@ footer {
   border-image: none;
 }
 
-#R1952:focus{
+#R1952:focus {
   border-color: #2b35d1;
   background-color: white;
   box-shadow: 0 0 0 4px rgba(43, 53, 209, 0.1);
 }
 
-#P1953{
+#P1953 {
   font-family: inherit;
   font-size: 16px;
   background-color: rgb(249, 249, 249);
@@ -912,13 +908,13 @@ footer {
   border-image: none;
 }
 
-#P1953:focus{
+#P1953:focus {
   border-color: #2b35d1;
   background-color: white;
   box-shadow: 0 0 0 4px rgba(43, 53, 209, 0.1);
 }
 
-#I2985{
+#I2985 {
   font-family: inherit;
   font-size: 16px;
   background-color: rgb(249, 249, 249);
@@ -930,19 +926,11 @@ footer {
   border-image: none;
 }
 
-#I2985:focus{
+#I2985:focus {
   border-color: #2b35d1;
   background-color: white;
   box-shadow: 0 0 0 4px rgba(43, 53, 209, 0.1);
 }
-
-
-
-
-
-
-
-
 
 /* ---------- Favourite button ---------- */
 
@@ -956,8 +944,6 @@ footer {
   flex: 1;
   width: 100%;
   padding: 10px;
-  /* background-color: #fff;
-  color: #e0245e; */
   background-color: #e0245e;
   color: #ffffff;
   border: 1px solid #e0245e;
@@ -966,14 +952,16 @@ footer {
   font-family: inherit;
   font-size: 14px;
   cursor: pointer;
-  transition: background-color 0.2s ease, color 0.2s ease, transform 0.1s ease;
+  transition:
+    background-color 0.2s ease,
+    color 0.2s ease,
+    transform 0.1s ease;
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
 .favouriteButton:hover {
-  /* background-color: #e0245e; */
   background-color: #bd1e50;
   color: #ffffff;
 }
@@ -982,11 +970,135 @@ footer {
   transform: scale(0.97);
 }
 
+.favHomeContainer {
+  max-width: 1200px;
+  margin: auto;
+  padding-top: 30px;
+  padding-inline: 25px;
+}
 
-/* .favouriteButton {
-  background-color: #e0245e;
+.headerContainer {
+  position: sticky;
+  top: 0;
+}
+
+.userNavContainer {
+  position: sticky;
+  top: 0;
+  z-index:100;
+}
+
+.favHomeCardContainer{
+  /* border:2px solid black; */
+  background-color:white;
+  margin-top:10px;
+  width:370px;
+  height:395px;
+  border-radius:15px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+}
+
+.favHomeCardContainer:hover{
+  transform: translateY(-5px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+}
+
+.cardsContainer{
+  display:grid;
+  grid-template-columns:1fr 1fr 1fr;
+  /* flex-wrap:wrap; */
+  gap:20px;
+  margin-top:20px;
+}
+
+.bottomContainer{
+  padding:15px;
+}
+
+.NameandRatingContainer{
+  display:flex;
+  flex-direction:row;
+  align-items:center;
+  justify-content:space-between;
+}
+
+.NameandRatingContainer > div:nth-child(2){
+  color: #222;
+  font-weight: 500;
+}
+
+.LocationContainer1{
+  border-bottom: 1px solid rgb(238, 238, 238);
+  /* border-bottom:1px solid black; */
+  color: rgb(113, 113, 113);
+    font-size: 16.2px;
+    padding-bottom: 16px;
+    padding-top:10px;
+}
+
+.priceContainer1{
+  display:flex;
+  align-items:center;
+  flex-direction:row;
+  gap:5px;
+}
+
+.slash{
+  font-size:22px;
+  color:rgb(63, 62, 62);
+}
+
+.night{
+  font-size:17px;
+  color:rgb(63, 62, 62);
+}
+
+
+.page-header > h1:first-child{
+  font-weight:700;
+}
+
+.page-header > p:nth-child(2){
+  font-size:18px;
+  padding-top:4px;
+  color:rgb(92, 90, 90);
+}
+
+.priceremoveContainer{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  padding-block:10px;
+}
+
+
+
+.remove-btn {
+  background-color: #ff4d4d;
+  color: #ffffff;
+  padding:5px 10px;
+  border-radius:4px;
+  cursor:pointer;
+  border:none;
+  outline:none;
+}
+
+.remove-btn:hover {
+  background-color: #e60000;
   color: #ffffff;
 }
-.favouriteButton:hover {
-  background-color: #bd1e50;
-} */
+
+.remove-btn:active {
+  background-color: #b30000;
+  color: #ffffff;
+  transform: scale(0.98);
+}
+
+.priceRate{
+  font-size: 17.6px;
+    font-weight: 700;
+    color: rgb(34, 34, 34);
+}
