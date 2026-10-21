@@ -3,14 +3,29 @@ let theClass = document.querySelector("#A19352");
 let cancelButton = document.querySelector(".btnCancel");
 let saveButton = document.querySelector(".btnSave");
 let idOfCurrentHome;
+let deleteHomeButton = document.querySelectorAll(".deleteButton");
+deleteHomeButton.forEach((deleteButton) => {
+  deleteButton.addEventListener("click", async () => {
+    let buttonId = deleteButton.dataset.id;
+    // alert(buttonId);
+    // alert("Delete button clicked.");
+    const requestHandler = await fetch(`/host/homes-delete/${buttonId}`, {
+      method: "POST",
+    });
+    const data = await requestHandler.json();
+    alert(data.message);
+    window.location.reload();
+    // console.log(data);
+  });
+});
 
 cancelButton.addEventListener("click", () => {
   console.log(idOfCurrentHome);
   theClass.classList.remove("overlay1");
 });
 
-saveButton.addEventListener("click",async () => {
-const response = await fetch(`/host/homes-edit/${idOfCurrentHome}`, {
+saveButton.addEventListener("click", async () => {
+  const response = await fetch(`/host/homes-edit/${idOfCurrentHome}`, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
@@ -20,14 +35,14 @@ const response = await fetch(`/host/homes-edit/${idOfCurrentHome}`, {
       Price: document.querySelector('[name="Price"]').value,
       Location: document.querySelector('[name="Location"]').value,
       Rating: document.querySelector('[name="Rating"]').value,
-      PhoneNumber : document.querySelector('[name="phoneNumber"]').value,
+      PhoneNumber: document.querySelector('[name="phoneNumber"]').value,
       Details: document.querySelector('[name="Details"]').value,
     }),
   });
 
   const result = await response.json();
-  console.log(result.message)
-  window.location.reload()
+  console.log(result.message);
+  window.location.reload();
   theClass.classList.remove("overlay1");
 });
 

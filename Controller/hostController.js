@@ -77,6 +77,22 @@ const homesPostEdit = (req, res, next) => {
   });
 };
 
+// Homes deleting request controller
+
+const deleteHome = (req, res, next) => {
+  let requestId = req.params.homeId;
+  // console.log("Data is receiving :-", requestId);
+  product.deleteHome(req.params.homeId, (err, deletedHomes) => {
+    if (err) return next(err);
+
+    if (!deletedHomes) {
+      return res.status(404).json({ message: "Homes not found" });
+    }
+    res.json({ message: "Homes deleted" });
+  });
+};
+
+exports.deleteHome = deleteHome;
 exports.homesPostEdit = homesPostEdit;
 exports.homesEdit = homesEdit;
 exports.homeList = homeList;

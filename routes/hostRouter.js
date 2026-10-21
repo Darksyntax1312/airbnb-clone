@@ -7,6 +7,7 @@ const { homePageController } = require("../Controller/hostController");
 const { homeList } = require("../Controller/hostController");
 const { homesEdit } = require("../Controller/hostController");
 const { homesPostEdit } = require("../Controller/hostController");
+const {deleteHome} = require("../Controller/hostController");
 
 // Show form
 
@@ -32,5 +33,9 @@ hostRouter.get("/home-list", homeList);
 
 hostRouter.get("/homes-edit/:homeId", homesEdit);
 hostRouter.post("/homes-edit/:homeId", homesPostEdit);
+
+// this route handles the requests of delting a home
+
+hostRouter.post("/homes-delete/:homeId",deleteHome)
 
 module.exports = hostRouter;
