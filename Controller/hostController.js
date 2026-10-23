@@ -17,8 +17,8 @@ const getController = (req, res) => {
 };
 
 const postController = (req, res) => {
-  const { Name, Price, Location, Rating, PhoneNumber, Details } = req.body;
-  const home = new product(Name, Price, Location, Rating, PhoneNumber, Details);
+  const { Name, Price, Location, Rating, PhoneNumber, Details , imageLink } = req.body;
+  const home = new product(Name, Price, Location, Rating, PhoneNumber, Details , imageLink);
   home.save();
   res.redirect("/host/homes");
 };

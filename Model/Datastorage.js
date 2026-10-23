@@ -5,7 +5,7 @@ const fs = require("fs");
 const { randomUUID } = require("crypto");
 
 class Product {
-  constructor(Name, Price, Location, Rating, PhoneNumber, Details) {
+  constructor(Name, Price, Location, Rating, PhoneNumber, Details, imageLink) {
     this.id = randomUUID();
     this.Name = Name;
     this.Price = Price;
@@ -13,6 +13,7 @@ class Product {
     this.Rating = Rating;
     this.PhoneNumber = PhoneNumber;
     this.details = Details;
+    this.imageLink = imageLink;
   }
 
   // Saving data to database
@@ -130,6 +131,9 @@ class Product {
       }
       if (updates.Details !== home.details) {
         home.details = updates.Details;
+      }
+      if (updates.imageLink !== home.imageLink) {
+        home.imageLink = updates.imageLink;
       }
       fs.writeFile("Newfile.txt", JSON.stringify(homes), (writeErr) => {
         if (writeErr) return callback(writeErr);

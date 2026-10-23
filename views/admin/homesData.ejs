@@ -15,8 +15,9 @@
                 <form method="post">
                   <div class="homesCardContainer">
                     <div class="topContainer">
-                      <img class="homeImage" src=" https://images.unsplash.com/photo-1564013799919-ab600027ffc6?w=400 "
-                        alt="Home image" class="homeImage">
+                      <!-- <img class="homeImage" src=" https://images.unsplash.com/photo-1564013799919-ab600027ffc6?w=400 "
+                        alt="Home image" class="homeImage"> -->
+                        <img class="homeImage" src="<%= item.imageLink %>" alt="Home image">
                     </div>
 
                     <div class="bottomContainer">
@@ -41,7 +42,7 @@
                         <div class="form1">
                           <button type="button" class="editButton" data-id="<%=item.id%>">Edit</button>
                         </div>
-                        <button type="button" class="deleteButton"  data-id="<%=item.id%>">Delete</button>
+                        <button type="button" class="deleteButton" data-id="<%=item.id%>">Delete</button>
                       </div>
                     </div>
                   </div>
@@ -113,7 +114,8 @@
 
             <div class="homeDetailsContainer">
               <label>Home details</label>
-              <textarea rows="5" name="Details" placeholder="Enter your home details here..." class="textareaContent"></textarea>
+              <textarea rows="5" name="Details" placeholder="Enter your home details here..."
+                class="textareaContent"></textarea>
             </div>
 
             <div class="modalActions">

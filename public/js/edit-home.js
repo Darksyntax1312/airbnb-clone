@@ -37,6 +37,7 @@ saveButton.addEventListener("click", async () => {
       Rating: document.querySelector('[name="Rating"]').value,
       PhoneNumber: document.querySelector('[name="phoneNumber"]').value,
       Details: document.querySelector('[name="Details"]').value,
+      imageLink: document.querySelector("[name=imageLink").value,
     }),
   });
 
@@ -63,5 +64,6 @@ editButton.forEach((button) =>
     document.querySelector('[name="Rating"]').value = home.Rating;
     document.querySelector('[name="phoneNumber"]').value = home.PhoneNumber;
     document.querySelector('[name="Details"]').value = home.details;
+    document.querySelector('[name="imageLink"]').value = home.imageLink;
   }),
 );
