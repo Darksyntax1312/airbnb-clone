@@ -66,7 +66,6 @@ body {
   text-decoration: none;
   margin-left: 20px;
   font-weight: 600;
-  /* transition: color 0.2s ease; */
 }
 
 .homeContainer {
@@ -457,7 +456,6 @@ footer {
   border-radius: 8px;
   font-weight: 600;
   cursor: pointer;
-  /* transition: background-color 0.2s ease; */
   transition: background-color 0.2s ease-in-out;
   display: flex;
   flex-direction: row;
@@ -888,7 +886,7 @@ footer {
   box-shadow: 0 0 0 4px rgba(43, 53, 209, 0.1);
 }
 
-#A19576{
+#A19576 {
   font-size: 16px;
   background-color: rgb(249, 249, 249);
   padding: 12px 2px;
@@ -899,7 +897,7 @@ footer {
   border-image: none;
 }
 
-#A19576:focus{
+#A19576:focus {
   border-color: #2b35d1;
   background-color: white;
   box-shadow: 0 0 0 4px rgba(43, 53, 209, 0.1);
@@ -1117,16 +1115,21 @@ footer {
 .remove-btn {
   background-color: #ff4d4d;
   color: #ffffff;
-  padding: 5px 10px;
-  border-radius: 4px;
+  padding: 10px 15px;
+  border-radius: 6px;
+  font-weight: 600;
+  /* transition:background-color 0.2s ease-in-out; */
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
   cursor: pointer;
   border: none;
   outline: none;
 }
 
 .remove-btn:hover {
-  background-color: #e60000;
-  color: #ffffff;
+  background-color: #c6202e;
 }
 
 .remove-btn:active {
@@ -1282,4 +1285,86 @@ footer {
   .page-header > h1:first-child {
     font-size: 25px;
   }
+}
+
+.nofavhomeMess {
+  margin-top: 50px;
+}
+
+.userhomepageContainer {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  /* border: 2px solid black; */
+  padding-top: 40px;
+  padding-inline: 30px;
+}
+
+.userhomepagecardContainer {
+  padding: 50px 40px;
+  background-color: white;
+  text-align: center;
+  border-radius: 20px;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08);
+  max-width: 600px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 64px auto;
+}
+
+.userhomepagecardContainer > h1:first-child {
+  color: #222;
+  font-size: 35px;
+  margin-bottom: 15px;
+}
+
+.subtitle {
+  color: #777;
+  font-size: 18px;
+  line-height: 1.6;
+  margin-bottom: 35px;
+}
+
+.seehomeButton {
+  text-decoration:none;
+  background-color: #ff385c;
+  color: white;
+  border: none;
+  display: block;
+  padding: 15px 40px;
+  width: 200px;
+  font-size: 17.6px;
+  cursor: pointer;
+  border-radius: 12px;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(255, 56, 92, 0.3);
+}
+
+.userhomepagecardContainer > a:nth-child(3):hover {
+  background-color: #e03150;
+  transform: translateY(-3px);
+  box-shadow: 0 6px 20px rgba(255, 56, 92, 0.4);
+}
+
+.userhomepagecardContainer > a:nth-child(3):active {
+  transform: translateY(0);
+}
+
+@media (width < 650px) {
+  .userhomepageContainer {
+    padding-top: 15px;
+  }
+}
+
+@media(width < 500px){
+  .userhomepageContainer{
+    padding-top:5px;
+  }
+.userhomepagecardContainer{
+margin:45px auto;
+}
 }

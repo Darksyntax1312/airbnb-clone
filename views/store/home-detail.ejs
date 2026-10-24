@@ -4,7 +4,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title><%= title %></title>
+    <title>
+        <%= title %>
+    </title>
     <link rel="stylesheet" href="/css/custom2.css">
     <link rel="stylesheet" href="/css/custom.css">
     <!-- Google Font -->
@@ -18,19 +20,22 @@
             <!-- LEFT SIDE: Image -->
             <div class="card-image">
                 <!-- Using a placeholder image from Unsplash -->
-                <img src="https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
-                    alt="Beautiful Home">
+                <img src="<%=items.imageLink%>" alt="Beautiful Home">
             </div>
 
             <!-- RIGHT SIDE: Details -->
             <div class="card-details">
 
                 <div class="header-row">
-                    <h2><%=items.Name %></h2>
-                    <div class="rating">⭐ <%=items.Rating%></div>
+                    <h2>
+                        <%=items.Name %>
+                    </h2>
+                    <div class="rating">⭐ <%=items.Rating%>
+                    </div>
                 </div>
 
-                <p class="location">📍 <%=items.Location%></p>
+                <p class="location">📍 <%=items.Location%>
+                </p>
 
                 <div class="price-tag">
                     <span class="price">Rs<%=items.Price%></span> / night
@@ -40,11 +45,14 @@
 
                 <div class="description">
                     <h3>About this home</h3>
-                    <p><%=items.details%></p>
+                    <p>
+                        <%=items.details%>
+                    </p>
                 </div>
 
                 <div class="contact-row">
-                    <p class="phone">📞 <%= items.PhoneNumber%></p>
+                    <p class="phone">📞 <%= items.PhoneNumber%>
+                    </p>
                     <button class="book-btn">Book Now</button>
                 </div>
 

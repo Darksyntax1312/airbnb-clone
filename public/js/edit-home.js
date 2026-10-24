@@ -7,15 +7,12 @@ let deleteHomeButton = document.querySelectorAll(".deleteButton");
 deleteHomeButton.forEach((deleteButton) => {
   deleteButton.addEventListener("click", async () => {
     let buttonId = deleteButton.dataset.id;
-    // alert(buttonId);
-    // alert("Delete button clicked.");
     const requestHandler = await fetch(`/host/homes-delete/${buttonId}`, {
       method: "POST",
     });
     const data = await requestHandler.json();
     alert(data.message);
     window.location.reload();
-    // console.log(data);
   });
 });
 
@@ -52,12 +49,10 @@ editButton.forEach((button) =>
     idOfCurrentHome = button.dataset.id;
     theClass.classList.add("overlay1");
     let homeId = button.dataset.id;
-    // alert("This is the home's id: " + homeId);
 
     const response = await fetch(`/host/homes-edit/${homeId}`);
     const home = await response.json();
 
-    // console.log("Home data received:", home);
     document.querySelector('[name="homeName"]').value = home.Name;
     document.querySelector('[name="Price"]').value = home.Price;
     document.querySelector('[name="Location"]').value = home.Location;

@@ -2,16 +2,16 @@ const product = require("../Model/Datastorage");
 const favourite = require("../Model/FavouriteHomeStorage");
 const favouriteIds = [];
 
-// User's main home page
+// User's main home list
 
-const userControl = (req, res, next) => {
+const userHomeList = (req, res, next) => {
   product.fetchAll((err, items) => {
     if (err) {
       return next(err);
     }
     res.render("user/userPage", {
       items: items,
-      title: "User home page",
+      title: "User - homelist",
       UserHomeLink: req.url,
     });
   });
@@ -41,7 +41,6 @@ const userFavouriteget = (req, res, next) => {
       let filteredHomes = Productitems.filter((element) =>
         items.includes(element.id),
       );
-      // console.log(filteredHomes);
       res.render("store/favourite-list", {
         title: "User favourite",
         userFavouriteLink: req.url,
@@ -54,20 +53,16 @@ const userFavouriteget = (req, res, next) => {
 // User's favourite homes post request page
 
 const userFavouritepost = (req, res) => {
-  // console.log("Favourite clicked:", req.params.homeId);
-  // console.log("Favourite POST controller reached")
   const myRequest = req.params.homeId;
   favouriteIds.push(myRequest);
-  // console.log(favouriteIds);
   const favouriteHomeId = new favourite(req.params.homeId);
   favouriteHomeId.save();
-  res.redirect("/User-favourite");
+  res.redirect("/User/User-favourite");
 };
 
 // Home details page
 
 const userHomes = (req, res, next) => {
-  // console.log(req.params.homeId);
   product.fetchAll((err, items) => {
     if (err) {
       return next(err);
@@ -85,8 +80,8 @@ const userHomes = (req, res, next) => {
 
 // Home list page
 
-const userHomeList = (req, res) => {
-  res.render("store/home-list", { title: "Home list", userHomeList: req.url });
+const userHomePage = (req, res) => {
+  res.render("user/user-home-page", { title: "User page", userHomeList: req.url });
 };
 
 // Reserved home page
@@ -101,8 +96,6 @@ const userHomeReserve = (req, res) => {
 // User favourite homes delete controller
 
 const userFavouriteDelete = (req, res,next) => {
-  // console.log("Request is receiving....");
-  // console.log(req.params.homeId);
   favourite.removeFav(req.params.homeId,(err,deletedFavs) =>{
     if(err) return next(err);
 
@@ -115,9 +108,12 @@ const userFavouriteDelete = (req, res,next) => {
 
 exports.userFavouriteDelete = userFavouriteDelete;
 exports.userHomeReserve = userHomeReserve;
-exports.userHomeList = userHomeList;
+exports.userHomePage = userHomePage;
 exports.userHomes = userHomes;
 exports.userFavouriteget = userFavouriteget;
 exports.userFavouritepost = userFavouritepost;
 exports.userBookings = userBookings;
-exports.userControl = userControl;
+
+
+
+exports.userHomeList = userHomeList;
