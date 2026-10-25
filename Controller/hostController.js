@@ -9,6 +9,8 @@ const homePageController = (req, res) => {
   });
 };
 
+// Add home page get controller
+
 const getController = (req, res) => {
   res.render("admin/hostPage", {
     title: "Host page - addhome",
@@ -16,9 +18,20 @@ const getController = (req, res) => {
   });
 };
 
+// Add home post controller
+
 const postController = (req, res) => {
-  const { Name, Price, Location, Rating, PhoneNumber, Details , imageLink } = req.body;
-  const home = new product(Name, Price, Location, Rating, PhoneNumber, Details , imageLink);
+  const { Name, Price, Location, Rating, PhoneNumber, Details, imageLink } =
+    req.body;
+  const home = new product(
+    Name,
+    Price,
+    Location,
+    Rating,
+    PhoneNumber,
+    Details,
+    imageLink,
+  );
   home.save();
   res.redirect("/host/homes");
 };
@@ -80,8 +93,6 @@ const homesPostEdit = (req, res, next) => {
 // Homes deleting request controller
 
 const deleteHome = (req, res, next) => {
-  let requestId = req.params.homeId;
-  // console.log("Data is receiving :-", requestId);
   product.deleteHome(req.params.homeId, (err, deletedHomes) => {
     if (err) return next(err);
 
