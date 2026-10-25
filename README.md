@@ -1,38 +1,74 @@
-# 🏡 Airbnb Clone
+# Airbnb Clone - Full Stack (Node.js, Express, EJS)
 
-A full-stack Airbnb clone built from scratch to master backend development. This project features a role-based system (Host/User) and uses EJS for server-side rendering.
+A fully functional, mobile-responsive clone of Airbnb's core flow. Built from scratch as the capstone project of my Node.js & Express learning journey.
 
-## 🚀 Features
-- **Role-based Login:** Separate flows for Hosts and Users.
-- **Dynamic Routing:** Individual home details pages using dynamic IDs.
-- **MVC Architecture:** Clean separation of Controllers, Models, Routes, and Views.
-- **File System Database:** Using Node.js `fs` module to persist data in a JSON file.
-- **Partials:** Reusable headers and footers for different roles.
-- **Active Navigation:** Highlights the current page in the navigation bar.
-- **Custom CSS:** Fully responsive styling without external UI libraries.
+## Links
 
-## 🛠️ Tech Stack
+- **Backend Learning Portfolio**: [github.com/Darksyntax1312/nodejs-backend-learning](https://github.com/Darksyntax1312/nodejs-backend-learning)
+
+## Features
+
+### For Hosts (Admins)
+
+- Add new homes with details (Name, Price, Location, Rating, Phone, Description).
+- View a dashboard of all listed homes.
+- Edit existing home details.
+- Delete homes.
+- Dynamic routing for editing/deleting specific homes (using `req.params`).
+
+### For Users (Guests)
+
+- Browse all available homes.
+- View detailed information about a specific home.
+- Add homes to a "Favourites" list (persisted).
+- View the Favourites list and remove items.
+- Reserve a home and view bookings.
+
+### Technical Features
+
+- **MVC Architecture:** Clean separation of Routes, Controllers, Models, and Views.
+- **Responsive UI:** Fully mobile-friendly using Tailwind CSS / Custom CSS.
+- **Custom 404 Page:** Handles unmatched routes gracefully.
+- **JSON Persistence:** Uses `fs` to store data without a heavy database.
+- **Dynamic Templates:** EJS partials for reusable headers, footers, and navs.
+
+## Tech Stack
+
 - **Backend:** Node.js, Express.js
-- **Templating:** EJS
-- **Storage:** File System (`fs`)
-- **Styling:** Custom CSS
-- **Architecture:** MVC (Model-View-Controller)
+- **Frontend:** EJS (Embedded JavaScript Templates), Tailwind CSS / Custom CSS
+- **Routing:** Express Router (Modular routing)
+- **Data Storage:** JSON files (`Newfile.txt`, `NewIdFile.txt`) via the `fs` module
+- **Utilities:** `crypto.randomUUID()` for unique IDs, `path` for directory management
 
-## ⚙️ How to Run Locally
-1. Clone the repo:
-   `git clone https://github.com/Darksyntax1312/airbnb-clone.git`
-2. Install dependencies:
-   `npm install`
-3. Start the server:
-   `npm start` (or `nodemon App.js`)
-4. Open `http://localhost:3000` in your browser.
+## Folder Structure
 
-## 📈 Upcoming Features
-- [ ] Connect to MongoDB
-- [ ] User Authentication (JWT)
-- [ ] Edit/Delete logic for Hosts
-- [ ] Booking system with dates
+- `App.js` (Express server entry point)
+- `Controller/` (MVC Controllers - business logic)
+- `Model/` (MVC Models - data layer)
+- `routes/` (Express Routers)
+- `views/` (EJS Templates - admin, store, user, partials)
+- `public/` (Static assets - CSS, images)
+- `src/` (Tailwind source files)
 
-## 👨‍💻 Author
-**Mayank Madhukar**  
-[GitHub Profile](https://github.com/Darksyntax1312)
+## How to Run Locally
+
+1. Clone the repository: `git clone https://github.com/Darksyntax1312/airbnb-clone.git`
+2. Navigate into the folder: `cd airbnb-clone`
+3. Install dependencies: `npm install`
+4. Start the server: `node App.js`
+5. Open in browser: Visit `http://localhost:3000`
+
+## What I Learned Building This
+
+- How to structure a large Express app using **MVC**.
+- How to keep routers clean by moving logic to controllers.
+- How to persist data using the file system (`fs`) and JSON when a database isn't available.
+- How to handle dynamic routes for editing and deleting specific items.
+- How to build a fully responsive UI with EJS partials and Tailwind.
+
+## Future Improvements
+
+- Migrate JSON file storage to **MongoDB** or **MySQL**.
+- Add **User Authentication** (sessions, password hashing with bcrypt).
+- Implement image uploads for homes (using Multer).
+- Add a search/filter bar for browsing homes.
