@@ -1311,3 +1311,17 @@ footer {
     margin: 45px auto;
   }
 }
+
+@media(width < 575px){
+  .priceNameContainer{
+    display:flex;
+    flex-direction:column;
+  }
+  .locationRatingContainer{
+    display:flex;
+    flex-direction:column;
+  }
+  .overlayContainer{
+    height:auto;
+  }
+}
