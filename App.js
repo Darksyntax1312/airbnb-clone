@@ -23,7 +23,7 @@ App.use((req, res) => {
   res.status(404).render('404mess', {title : "Page not found" , message : "404 Your page is not found."});
 });
 
-
-App.listen(3000, () => {
-  console.log("Server is lauched at portal 3000");
+const PORT = process.env.PORT || 3000;
+App.listen(PORT, () => {
+  console.log(`Server is launched at port ${PORT}`);
 });
