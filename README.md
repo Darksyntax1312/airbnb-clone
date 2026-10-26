@@ -3,7 +3,7 @@
 A fully functional, mobile-responsive clone of Airbnb's core flow. Built from scratch as the capstone project of my Node.js & Express learning journey.
 
 ## Links
-- 🌐 **Live Demo**: https://airbnb-clone-bp7n.onrender.com
+- 🌐 **Live Demo**: `https://airbnb-clone-bp7n.onrender.com`
 - 💻 **Backend Learning Portfolio**: [github.com/Darksyntax1312/nodejs-backend-learning](https://github.com/Darksyntax1312/nodejs-backend-learning)
 
 ## Features
